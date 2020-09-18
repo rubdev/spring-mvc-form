@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario de empleados</title>
+    <!-- CSS -->
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Miempresa.com</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Inicio</a></li>
+                <li><a href="/empleado/new">Nuevo empleado</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<hr>
+<hr>
+
+<!-- El formulario -->
+<div class="container">
+    <div class="row">
+        <div class="starter-template">
+            <form action="#" th:action="${empleadoForm.id != 0} ? @{/empleado/edit/submit} : @{/empleado/new/submit}"
+                             th:object="${empleadoForm}" method="post">
+                <fieldset>
+
+                    <!-- Form Name -->
+                    <legend th:text="${empleadoForm.id != 0} ? 'Editar empleado' : 'Nuevo empleado ">Nuevo empleado</legend>
+
+                    <!-- ID input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="idEmpleado">ID</label>
+                        <div class="col-md-4">
+                            <input id="idEmpleado" name="idEmpleado" type="text" placeholder="ID del empleado"
+                                   class="form-control input-md" required="" th:field="*{id}" th:attrappend="readonly=${empleadoForm.id != 0} ? 'readonly' : null">
+                        </div>
+                    </div>
+
+                    <!-- Nombre input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="nombreEmpleado">Nombre</label>
+                        <div class="col-md-4">
+                            <input id="nombreEmpleado" name="nombreEmpleado" type="text"
+                                   placeholder="Nombre del empleado"
+                                   class="form-control input-md" required="" th:field="*{nombre}">
+                        </div>
+                    </div>
+
+                    <!-- Email input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="emailEmpleado">Email</label>
+                        <div class="col-md-4">
+                            <input id="emailEmpleado" name="emailEmpleado" type="text" placeholder="Email del empleado"
+                                   class="form-control input-md" required="" th:field="*{email}">
+                        </div>
+                    </div>
+
+                    <!-- Teléfono input-->
+                    <div class="form-group">
+                        <label class="col-md-4 control-label" for="telefonoEmpleado">Teléfono</label>
+                        <div class="col-md-4">
+                            <input id="telefonoEmpleado" name="telefonoEmpleado" type="text"
+                                   placeholder="Teléfono del empleado"
+                                   class="form-control input-md" required="" th:field="*{telefono}">
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Enviar</button>
+
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- SCRIPTS -->
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/jquery/jquery.min.js"></script>
+</body>
+</html>

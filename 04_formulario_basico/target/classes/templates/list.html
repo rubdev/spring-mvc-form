@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Listado de empleados</title>
+    <!-- CSS -->
+    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Miempresa.com</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <li class="active"><a href="#">Inicio</a></li>
+                <li><a href="/empleado/new">Nuevo empleado</a></li>
+            </ul>
+        </div><!--/.nav-collapse -->
+    </div>
+</nav>
+<hr>
+<hr>
+<div class="container">
+    <div class="starter-template">
+        <h1>Listado de empleados de la empresa</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <th>id</th>
+                <th>nombre</th>
+                <th>email</th>
+                <th>telefono</th>
+                <th>Acciones</th>
+            </tr>
+            </thead>
+            <thbody>
+                <tr th:each="empleado : ${listaEmpleados}">
+                    <td th:text="${empleado.id}"></td>
+                    <td th:text="${empleado.nombre}"></td>
+                    <td th:text="${empleado.email}"></td>
+                    <td th:text="${empleado.telefono}"></td>
+                    <td><a th:href="@{/empleado/edit/{id}(id=${empleado.id})}">Editar</a></td>
+                </tr>
+            </thbody>
+        </table>
+    </div>
+
+</div><!-- /.container -->
+
+<!-- SCRIPTS -->
+<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
+<script src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+<script src="/webjars/jquery/3.1.1/jquery.min.js"></script>
+<script src="/webjars/jquery/jquery.min.js"></script>
+</body>
+</html>

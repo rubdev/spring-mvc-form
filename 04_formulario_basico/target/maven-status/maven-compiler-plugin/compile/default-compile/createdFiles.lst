@@ -1,0 +1,4 @@
+com\ruben\formularios\FormulariosApplication.class
+com\ruben\formularios\model\Empleado.class
+com\ruben\formularios\controllers\EmpleadoController.class
+com\ruben\formularios\services\EmpleadoService.class
